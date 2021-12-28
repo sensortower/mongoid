@@ -54,7 +54,7 @@ module Mongoid
         if contents.empty?
           raise Mongoid::Errors::EmptyConfigFile.new(path)
         end
-        data = YAML.load(ERB.new(contents).result)
+        data = YAML.safe_load(ERB.new(contents).result, permitted_classes: [Symbol], aliases: true)
         unless data.is_a?(Hash)
           raise Mongoid::Errors::InvalidConfigFile.new(path)
         end
