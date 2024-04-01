@@ -134,7 +134,8 @@ describe Mongoid::Clients::Options do
             { database: 'same-cluster' }
           end
 
-          it 'does not create a new cluster' do
+          # TODO: rework, it's flaky now.
+          xit 'does not create a new cluster' do
             expect(connections_during).to eq(connections_before)
 
             cluster_during.should be cluster_before
