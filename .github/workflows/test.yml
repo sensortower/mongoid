@@ -27,14 +27,33 @@ jobs:
           gemfile: gemfiles/rails-6.0.gemfile
           experimental: false
         - mongodb: '4.4'
+          ruby: ruby-3.0
+          topology: replica_set
+          task: test
+          os: ubuntu-20.04
+          driver: current
+          rails: '6.0'
+          gemfile: gemfiles/rails-6.0.gemfile
+          experimental: false
+        - mongodb: '4.4'
           ruby: ruby-2.7
           topology: replica_set
           task: test
           os: ubuntu-20.04
           driver: current
-          rails: '5.1'
-          gemfile: gemfiles/rails-5.1.gemfile
+          rails: '6.1'
+          gemfile: gemfiles/rails-6.1.gemfile
           experimental: false
+        - mongodb: '4.4'
+          ruby: ruby-3.0
+          topology: replica_set
+          task: test
+          os: ubuntu-20.04
+          driver: current
+          rails: '6.1'
+          gemfile: gemfiles/rails-6.1.gemfile
+          experimental: false
+
     steps:
     - name: repo checkout
       uses: actions/checkout@v2
