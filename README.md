@@ -3,7 +3,25 @@
 [![Code Climate](https://codeclimate.com/github/mongodb/mongoid.svg)](https://codeclimate.com/github/mongodb/mongoid)
 [![Dependency Status](https://www.versioneye.com/ruby/mongoid/4.0.0/badge.svg)](https://www.versioneye.com/ruby/mongoid/4.0.0)
 
-Mongoid is an ODM (Object-Document-Mapper) framework for MongoDB in Ruby.
+Mongoid is an ODM (Object-Document Mapper) framework for MongoDB in Ruby.
+
+Documentation
+-------------
+
+Mongoid has [extensive user documentation](https://docs.mongodb.com/mongoid/current/).
+[API documentation](http://api.mongodb.com/mongoid/current/) is also available.
+
+Mongoid is built on top of the MongoDB Ruby driver which has
+[its own user documentation](https://docs.mongodb.com/ruby-driver/current/).
+
+Compatibility
+-------------
+
+Mongoid supports and is tested against:
+
+- MRI 2.3-3.0
+- JRuby 9.2
+- MongoDB server 2.6-4.4
 
 Issues
 ------

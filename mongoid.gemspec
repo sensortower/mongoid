@@ -33,8 +33,30 @@ Gem::Specification.new do |s|
   s.required_ruby_version     = ">= 2.2"
   s.required_rubygems_version = ">= 1.3.6"
 
-  s.add_dependency("activemodel", [">= 5.1", "<6.2"])
-  s.add_dependency("mongo", ['>=2.7.0', '<3.0.0'])
+  if RUBY_VERSION.start_with?('2.')
+    s.add_dependency("activemodel", [">=5.1", "<6.2"])
+  elsif RUBY_VERSION.start_with?('3.')
+    s.add_dependency("activemodel", [">=6.0", "<6.2"])
+  end
+
+  # Right boundary <= 2.15.1 it's highest version that we need to have supported so far
+  # and tests fails with latest mongo-ruby-driver 2.20, so, probably it also can run on anything up to 2.18,
+  # but it need to be explicitly tested.
+  s.add_dependency("mongo", ['>=2.7.0', '<= 2.15.1'])
+  # Using this gem is recommended for handling argument delegation issues,
+  # especially if support for 2.6 or prior is required.
+  # See https://www.ruby-lang.org/en/news/2019/12/12/separation-of-positional-and-keyword-arguments-in-ruby-3-0/#delegation
+  #
+  # We have a bunch of complex delegation logic, including various method_missngs.
+  # If we try to fix them "right", it will add too much logic. We will have to
+  # handle different Ruby versions (including minor ones, Ruby 2.6 and 2.7
+  # behave differently), hash key types (strings vs symbols), ways of passing
+  # arguments (with curly braces vs without ones).
+  #
+  # Therefore, usage of this gem looks like a reasonable solution at the moment.
+  s.add_dependency("ruby2_keywords", "~> 0.0.5")
+
+  s.add_development_dependency("bson", ['>=4.9.4', '<5.0.0'])
 
   s.files        = Dir.glob("lib/**/*") + %w(CHANGELOG.md LICENSE README.md Rakefile)
   s.test_files   = Dir.glob("spec/**/*")
