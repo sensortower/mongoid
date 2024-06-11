@@ -21,7 +21,7 @@ jobs:
           ruby: ruby-2.7
           topology: replica_set
           task: test
-          os: ubuntu-20.04
+          os: ubuntu-22.04
           driver: current
           rails: '6.0'
           gemfile: gemfiles/rails-6.0.gemfile
@@ -30,7 +30,7 @@ jobs:
           ruby: ruby-3.0
           topology: replica_set
           task: test
-          os: ubuntu-20.04
+          os: ubuntu-22.04
           driver: current
           rails: '6.0'
           gemfile: gemfiles/rails-6.0.gemfile
@@ -39,7 +39,7 @@ jobs:
           ruby: ruby-3.1
           topology: replica_set
           task: test
-          os: ubuntu-20.04
+          os: ubuntu-22.04
           driver: current
           rails: '6.0'
           gemfile: gemfiles/rails-6.0.gemfile
@@ -48,7 +48,7 @@ jobs:
           ruby: ruby-2.7
           topology: replica_set
           task: test
-          os: ubuntu-20.04
+          os: ubuntu-22.04
           driver: current
           rails: '6.1'
           gemfile: gemfiles/rails-6.1.gemfile
@@ -57,7 +57,7 @@ jobs:
           ruby: ruby-3.0
           topology: replica_set
           task: test
-          os: ubuntu-20.04
+          os: ubuntu-22.04
           driver: current
           rails: '6.1'
           gemfile: gemfiles/rails-6.1.gemfile
@@ -66,7 +66,7 @@ jobs:
           ruby: ruby-3.1
           topology: replica_set
           task: test
-          os: ubuntu-20.04
+          os: ubuntu-22.04
           driver: current
           rails: '6.1'
           gemfile: gemfiles/rails-6.1.gemfile
