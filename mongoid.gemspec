@@ -42,7 +42,7 @@ Gem::Specification.new do |s|
   # Right boundary <= 2.15.1 it's highest version that we need to have supported so far
   # and tests fails with latest mongo-ruby-driver 2.20, so, probably it also can run on anything up to 2.18,
   # but it need to be explicitly tested.
-  s.add_dependency("mongo", ['>=2.7.0', '<= 2.15.1'])
+  s.add_dependency("mongo", ['>=2.7.0', '<= 2.17.1'])
   # Using this gem is recommended for handling argument delegation issues,
   # especially if support for 2.6 or prior is required.
   # See https://www.ruby-lang.org/en/news/2019/12/12/separation-of-positional-and-keyword-arguments-in-ruby-3-0/#delegation
