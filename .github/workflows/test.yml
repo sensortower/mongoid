@@ -90,6 +90,10 @@ jobs:
       with:
         ruby-version: "${{matrix.ruby}}"
         bundler: 2
+    - name: Show rubygems version
+      run: echo $(gem --version)
+    - name: Show bundler version
+      run: echo $(gem info bundler)
     - name: bundle
       run: bundle install --jobs 4 --retry 3
       env:
