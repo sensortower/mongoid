@@ -94,8 +94,10 @@ jobs:
       run: echo $(gem --version)
     - name: Show bundler version
       run: echo $(gem info bundler)
+    - name: Set bundler flag
+      run: bundle config set --local deployment 'true'
     - name: bundle
-      run: bundle install --jobs 4 --retry 3
+      run: bundle install --jobs 4 --retry 3 --deployment
       env:
         BUNDLE_GEMFILE: "${{matrix.gemfile}}"
     - name: Show mongo version
