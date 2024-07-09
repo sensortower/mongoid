@@ -87,7 +87,7 @@ jobs:
           os: ubuntu-20.04
           driver: 2.17
           rails: '6.1'
-          gemfile: gemfiles/driver_2.17.gemfile
+          gemfile: gemfiles/rails-6.1.gemfile
           experimental: false
 
     steps:
@@ -112,6 +112,8 @@ jobs:
       run: bundle install --jobs 4 --retry 3
       env:
         BUNDLE_GEMFILE: "${{matrix.gemfile}}"
+    - name: Show mongo version
+      run: echo $(gem info mongo)
     - name: test
       timeout-minutes: 60
       continue-on-error: "${{matrix.experimental}}"
