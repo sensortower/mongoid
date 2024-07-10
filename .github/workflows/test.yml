@@ -97,7 +97,7 @@ jobs:
     - name: Set bundler flag
       run: bundle config set --local path 'vendor/bundle'
     - name: bundle
-      run: bundle install --jobs 4 --retry 3
+      run: bundle install --jobs 4 --retry 3 --path 'vendor/bundle'
       env:
         BUNDLE_GEMFILE: "${{matrix.gemfile}}"
     - name: Show mongo version
