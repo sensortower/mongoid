@@ -84,24 +84,21 @@ jobs:
         version: "${{matrix.mongodb}}"
         topology: "${{matrix.topology}}"
     - name: load ruby
-      uses: ruby/setup-ruby@v1
+      uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
       env:
         BUNDLE_GEMFILE: "${{matrix.gemfile}}"
       with:
         ruby-version: "${{matrix.ruby}}"
         bundler: 2
-    - name: Show rubygems version
-      run: echo $(gem --version)
-    - name: Show bundler version
-      run: echo $(gem info bundler)
-    - name: Set bundler flag
+    # Bundler in version 2.4.22 started to complain regarding vulnerable
+    # world writable path if install globally, so, moved installation to
+    # local path.
+    - name: Set bundler path flag
       run: bundle config set --local path 'vendor/bundle'
     - name: bundle
       run: bundle install --jobs 4 --retry 3 --path 'vendor/bundle'
       env:
         BUNDLE_GEMFILE: "${{matrix.gemfile}}"
-    - name: Show mongo version
-      run: echo $(gem info mongo)
     - name: test
       timeout-minutes: 60
       continue-on-error: "${{matrix.experimental}}"
