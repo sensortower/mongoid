@@ -42,7 +42,7 @@ Gem::Specification.new do |s|
   # Right boundary <= 2.15.1 it's highest version that we need to have supported so far
   # and tests fails with latest mongo-ruby-driver 2.20, so, probably it also can run on anything up to 2.18,
   # but it need to be explicitly tested.
-  s.add_dependency("mongo", ['>=2.7.0', '< 2.18'])
+  s.add_dependency("mongo", '>=2.7.0')
   # Using this gem is recommended for handling argument delegation issues,
   # especially if support for 2.6 or prior is required.
   # See https://www.ruby-lang.org/en/news/2019/12/12/separation-of-positional-and-keyword-arguments-in-ruby-3-0/#delegation
@@ -56,7 +56,7 @@ Gem::Specification.new do |s|
   # Therefore, usage of this gem looks like a reasonable solution at the moment.
   s.add_dependency("ruby2_keywords", "~> 0.0.5")
 
-  s.add_development_dependency("bson", ['>=4.9.4', '<5.0.0'])
+  s.add_development_dependency("bson", '>=4.9.4')
 
   s.files        = Dir.glob("lib/**/*") + %w(CHANGELOG.md LICENSE README.md Rakefile)
   s.test_files   = Dir.glob("spec/**/*")
